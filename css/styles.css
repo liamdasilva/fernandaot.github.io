@@ -103,6 +103,31 @@ body {
     right: 0;
     z-index: 1000;
     width: 100%;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Header when scrolled */
+.main-nav.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 20px rgba(138, 122, 122, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+/* Header when actively scrolling */
+.main-nav.scrolling {
+    transition: all 0.1s ease;
+}
+
+/* Optional: Header hide/show on scroll direction */
+.main-nav.scroll-down {
+    transform: translateY(-100%);
+}
+
+.main-nav.scroll-up {
+    transform: translateY(0);
 }
 
 .main-nav ul {
@@ -114,6 +139,12 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     flex-wrap: wrap;
+    transition: padding 0.3s ease;
+}
+
+/* Compact navigation when scrolled */
+.main-nav.scrolled ul {
+    padding: 0.75rem 1rem;
 }
 
 .main-nav li {

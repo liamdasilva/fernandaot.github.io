@@ -73,4 +73,67 @@ document.addEventListener('DOMContentLoaded', function() {
     externalLinks.forEach(link => {
         link.addEventListener('click', addLoadingState);
     });
+    
+    // Interactive header scroll behavior
+    function initializeScrollHeader() {
+        const header = document.querySelector('.main-nav');
+        let lastScrollTop = 0;
+        let scrollTimeout;
+        
+        function updateHeaderOnScroll() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Add/remove scrolled class based on scroll position
+            if (scrollTop > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            // Optional: Add hide/show behavior on scroll direction
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scrolling down - could hide header if desired
+                header.classList.add('scroll-down');
+                header.classList.remove('scroll-up');
+            } else if (scrollTop < lastScrollTop) {
+                // Scrolling up - show header
+                header.classList.add('scroll-up');
+                header.classList.remove('scroll-down');
+            }
+            
+            lastScrollTop = scrollTop;
+            
+            // Clear any existing timeout
+            if (scrollTimeout) {
+                clearTimeout(scrollTimeout);
+            }
+            
+            // Add scrolling class while scrolling
+            header.classList.add('scrolling');
+            
+            // Remove scrolling class after scroll stops
+            scrollTimeout = setTimeout(() => {
+                header.classList.remove('scrolling');
+            }, 150);
+        }
+        
+        // Throttle scroll events for better performance
+        let ticking = false;
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateHeaderOnScroll);
+                ticking = true;
+                setTimeout(() => { ticking = false; }, 16); // ~60fps
+            }
+        }
+        
+        // Listen for scroll events
+        window.addEventListener('scroll', requestTick);
+        
+        // Initial check
+        updateHeaderOnScroll();
+    }
+    
+    // Initialize scroll header behavior
+    initializeScrollHeader();
 }); 
