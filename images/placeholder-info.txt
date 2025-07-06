@@ -1,0 +1,13 @@
+PLACEHOLDER IMAGES NEEDED
+
+The website is currently using placeholder images that need to be replaced with:
+
+1. fernanda-headshot.jpg - Professional headshot photo of Fernanda
+2. sos-feeding-logo.png - SOS Feeding certification logo
+3. play-project-logo.png - PLAY Project certification logo
+
+To get these images:
+1. For the headshot: Use a professional photo of Fernanda
+2. For certification logos: Contact the organizations directly or use images from your certificates
+
+Once you have these images, simply replace the placeholder files in this folder. 
