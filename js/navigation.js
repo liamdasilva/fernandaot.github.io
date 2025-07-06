@@ -7,9 +7,13 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                // Account for sticky nav height
+                const navHeight = document.querySelector('.main-nav').offsetHeight;
+                const targetPosition = target.offsetTop - navHeight - 20;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
                 });
             }
         });
@@ -21,14 +25,21 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function updateActiveNav() {
         let current = '';
+        const navHeight = document.querySelector('.main-nav').offsetHeight;
         
         sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (pageYOffset >= sectionTop - 200) {
+            const sectionTop = section.offsetTop - navHeight - 100;
+            const sectionBottom = sectionTop + section.clientHeight;
+            
+            if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionBottom) {
                 current = section.getAttribute('id');
             }
         });
+        
+        // Default to first section if no current section
+        if (!current && sections.length > 0) {
+            current = sections[0].getAttribute('id');
+        }
         
         navLinks.forEach(link => {
             link.classList.remove('active');
@@ -38,8 +49,25 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    window.addEventListener('scroll', updateActiveNav);
+    // Throttle scroll event for better performance
+    let ticking = false;
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(updateActiveNav);
+            ticking = true;
+        }
+    }
+    
+    function scrollHandler() {
+        ticking = false;
+        requestTick();
+    }
+    
+    window.addEventListener('scroll', scrollHandler);
     updateActiveNav(); // Run once on load
+    
+    // Update active nav on resize (in case layout changes)
+    window.addEventListener('resize', updateActiveNav);
 });
 
 // Add some basic styling for active navigation
