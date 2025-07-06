@@ -8,7 +8,7 @@
 :root {
     --primary-color: #d4a5a5;          /* Soft dusty rose */
     --secondary-color: #b8a9d4;        /* Soft lavender */
-    --accent-color: #a8c4a2;           /* Sage green */
+    --accent-color: #c6aa5d;           /* Burnt orange */
     --warm-cream: #faf7f4;             /* Warm cream background */
     --light-rose: #f2e6e6;             /* Light rose background */
     --soft-lavender: #f0edfa;          /* Soft lavender background */
@@ -471,8 +471,6 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     background-color: var(--white);
-    overflow-y: auto;
-    max-height: 100vh;
 }
 
 .about-text-intro h1 {
@@ -1858,7 +1856,6 @@ footer {
         padding: 40px 30px;
         order: 2;
         text-align: center;
-        max-height: none;
     }
     
     .about-text-intro h1 {
