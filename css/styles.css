@@ -6,6 +6,7 @@
 }
 
 :root {
+    /* Colors */
     --primary-color: #d4a5a5;          /* Soft dusty rose */
     --secondary-color: #b8a9d4;        /* Soft lavender */
     --accent-color: #c6aa5d;           /* Burnt orange */
@@ -19,6 +20,27 @@
     --shadow-color: rgba(138, 122, 122, 0.15);
     --gradient-start: #faf7f4;
     --gradient-end: #f2e6e6;
+    
+    /* Typography Scale */
+    --font-size-hero: 3.5rem;          /* Main hero titles */
+    --font-size-h1: 2.8rem;            /* Page main titles */
+    --font-size-h2: 2.4rem;            /* Section headers */
+    --font-size-h3: 1.6rem;            /* Subsection headers */
+    --font-size-large: 1.4rem;         /* Large text elements */
+    --font-size-lead: 1.3rem;          /* Lead paragraphs */
+    --font-size-body: 1.1rem;          /* Body text */
+    --font-size-base: 1.05rem;         /* Base text */
+    --font-size-small: 1rem;           /* Small text */
+    
+    /* Responsive Typography - Mobile */
+    --font-size-hero-mobile: 2.5rem;
+    --font-size-h1-mobile: 2.2rem;
+    --font-size-h2-mobile: 1.8rem;
+    
+    /* Common Layout Variables */
+    --section-padding: 100px 20px;
+    --max-content-width: 1200px;
+    --max-text-width: 800px;
 }
 
 body {
@@ -27,15 +49,60 @@ body {
     color: var(--text-primary);
     background-color: var(--white);
     scroll-behavior: smooth;
+    padding-top: 80px; /* Account for fixed header */
+}
+
+/* Common Section Styles */
+.page-section {
+    padding: var(--section-padding);
+}
+
+.page-section-gradient {
+    padding: var(--section-padding);
+    background: linear-gradient(135deg, var(--warm-cream) 0%, var(--light-rose) 100%);
+}
+
+.section-content {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-h1 {
+    font-size: var(--font-size-h1);
+    color: var(--text-primary);
+    margin-bottom: 50px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.section-h2 {
+    font-size: var(--font-size-h2);
+    color: var(--text-primary);
+    margin-bottom: 40px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.section-lead {
+    font-size: var(--font-size-lead);
+    line-height: 1.8;
+    color: var(--text-secondary);
+    max-width: var(--max-text-width);
+    margin: 0 auto 50px auto;
+    text-align: center;
 }
 
 /* Navigation */
 .main-nav {
     background-color: var(--white);
     box-shadow: 0 2px 10px var(--shadow-color);
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 100;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
 }
 
 .main-nav ul {
@@ -101,7 +168,7 @@ body {
 }
 
 .hero-section h1 {
-    font-size: 3.5rem;
+    font-size: var(--font-size-hero);
     color: var(--text-primary);
     margin-bottom: 10px;
     font-weight: 700;
@@ -197,18 +264,18 @@ body {
 
 /* Expertise section (on home page) */
 .expertise-section {
-    padding: 100px 20px;
+    padding: var(--section-padding);
     background-color: var(--white);
 }
 
 .expertise-content {
-    max-width: 1200px;
+    max-width: var(--max-content-width);
     margin: 0 auto;
     text-align: center;
 }
 
 .expertise-section h2 {
-    font-size: 2.8rem;
+    font-size: var(--font-size-h1);
     color: var(--text-primary);
     margin-bottom: 60px;
     font-weight: 700;
@@ -245,7 +312,7 @@ body {
 }
 
 .expertise-section .expertise-item h3 {
-    font-size: 1.4rem;
+    font-size: var(--font-size-large);
     color: var(--text-primary);
     margin-bottom: 0;
     font-weight: 600;
@@ -274,7 +341,7 @@ body {
 
 /* Certifications section */
 .certifications-section {
-    padding: 100px 20px;
+    padding: var(--section-padding);
     background: linear-gradient(135deg, var(--warm-cream) 0%, var(--light-rose) 100%);
 }
 
@@ -285,7 +352,7 @@ body {
 }
 
 .certifications-section h2 {
-    font-size: 2.8rem;
+    font-size: var(--font-size-h1);
     color: var(--text-primary);
     margin-bottom: 60px;
     font-weight: 700;
@@ -323,7 +390,7 @@ body {
 }
 
 .certification-item h3 {
-    font-size: 1.6rem;
+    font-size: var(--font-size-h3);
     color: var(--text-primary);
     margin-bottom: 15px;
     font-weight: 600;
@@ -361,7 +428,7 @@ body {
 
 /* Call to Action section */
 .cta-section {
-    padding: 100px 20px;
+    padding: var(--section-padding);
     background-color: var(--primary-color);
     color: var(--white);
 }
@@ -373,13 +440,13 @@ body {
 }
 
 .cta-section h2 {
-    font-size: 2.8rem;
+    font-size: var(--font-size-h1);
     margin-bottom: 30px;
     font-weight: 700;
 }
 
 .cta-section p {
-    font-size: 1.2rem;
+    font-size: var(--font-size-lead);
     margin-bottom: 40px;
     line-height: 1.6;
 }
@@ -397,7 +464,7 @@ body {
     border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: var(--font-size-body);
     transition: all 0.3s ease;
     min-width: 150px;
     text-align: center;
@@ -474,7 +541,7 @@ body {
 }
 
 .about-text-intro h1 {
-    font-size: 2.8rem;
+    font-size: var(--font-size-h1);
     color: var(--text-primary);
     margin-bottom: 25px;
     font-weight: 700;
@@ -482,7 +549,7 @@ body {
 }
 
 .about-text-intro h2 {
-    font-size: 1.6rem;
+    font-size: var(--font-size-h3);
     color: var(--text-primary);
     margin: 30px 0 15px 0;
     font-weight: 600;
@@ -493,7 +560,7 @@ body {
 }
 
 .about-text-intro .lead {
-    font-size: 1.3rem;
+    font-size: var(--font-size-lead);
     line-height: 1.7;
     color: var(--text-secondary);
     margin-bottom: 20px;
@@ -515,7 +582,7 @@ body {
 }
 
 .about-section h2 {
-    font-size: 2.8rem;
+    font-size: var(--font-size-h1);
     color: var(--text-primary);
     margin-bottom: 30px;
     font-weight: 700;
@@ -637,8 +704,8 @@ body {
 
 /* My Approach section */
 .approach-section {
-    padding: 100px 20px;
-    background: linear-gradient(135deg, var(--soft-lavender) 0%, var(--warm-cream) 100%);
+    padding: var(--section-padding);
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
 }
 
 .approach-content {
@@ -647,15 +714,23 @@ body {
     text-align: center;
 }
 
+.approach-content h1 {
+    font-size: var(--font-size-h1);
+    color: var(--text-primary);
+    margin-bottom: 50px;
+    font-weight: 700;
+    text-align: center;
+}
+
 .approach-section h2 {
-    font-size: 2.8rem;
+    font-size: var(--font-size-h1);
     color: var(--text-primary);
     margin-bottom: 50px;
     font-weight: 700;
 }
 
 .approach-intro .lead {
-    font-size: 1.3rem;
+    font-size: var(--font-size-lead);
     line-height: 1.8;
     margin-bottom: 50px;
     color: var(--text-secondary);
@@ -668,17 +743,17 @@ body {
 }
 
 .approach-philosophy h2 {
-    font-size: 2.4rem;
+    font-size: var(--font-size-h2);
     color: var(--text-primary);
     margin-bottom: 30px;
     font-weight: 600;
 }
 
 .approach-philosophy p {
-    font-size: 1.2rem;
+    font-size: var(--font-size-lead);
     line-height: 1.8;
     color: var(--text-secondary);
-    max-width: 800px;
+    max-width: var(--max-text-width);
     margin: 0 auto;
 }
 
@@ -749,7 +824,7 @@ body {
 }
 
 .approach-methods h2 {
-    font-size: 2.4rem;
+    font-size: var(--font-size-h2);
     color: var(--text-primary);
     margin-bottom: 30px;
     font-weight: 600;
@@ -757,11 +832,11 @@ body {
 }
 
 .approach-methods > p {
-    font-size: 1.2rem;
+    font-size: var(--font-size-lead);
     line-height: 1.8;
     color: var(--text-secondary);
     text-align: center;
-    max-width: 800px;
+    max-width: var(--max-text-width);
     margin: 0 auto 50px auto;
 }
 
@@ -802,7 +877,7 @@ body {
 }
 
 .approach-outcomes h2 {
-    font-size: 2.4rem;
+    font-size: var(--font-size-h2);
     color: var(--text-primary);
     margin-bottom: 50px;
     font-weight: 600;
@@ -843,8 +918,8 @@ body {
 
 /* The PLAY Project section */
 .play-project-section {
-    padding: 100px 20px;
-    background-color: var(--white);
+    padding: var(--section-padding);
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
 }
 
 .play-project-content {
@@ -854,7 +929,7 @@ body {
 }
 
 .play-project-section h2 {
-    font-size: 2.8rem;
+    font-size: var(--font-size-h1);
     color: var(--text-primary);
     margin-bottom: 50px;
     font-weight: 700;
@@ -1187,8 +1262,8 @@ body {
 
 /* Services & Fees section */
 .services-section {
-    padding: 100px 20px;
-    background: linear-gradient(135deg, var(--warm-cream) 0%, var(--light-rose) 100%);
+    padding: var(--section-padding);
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
 }
 
 .services-content {
@@ -1202,16 +1277,16 @@ body {
 }
 
 .services-intro .lead {
-    font-size: 1.3rem;
+    font-size: var(--font-size-lead);
     line-height: 1.8;
     color: var(--text-secondary);
-    max-width: 800px;
+    max-width: var(--max-text-width);
     margin: 0 auto;
 }
 
 .services-section h2 {
     text-align: center;
-    font-size: 2.8rem;
+    font-size: var(--font-size-h1);
     color: var(--text-primary);
     margin-bottom: 60px;
     font-weight: 700;
@@ -1278,7 +1353,7 @@ body {
 
 .pricing-section h2 {
     text-align: center;
-    font-size: 2.8rem;
+    font-size: var(--font-size-h1);
     color: var(--text-primary);
     margin-bottom: 60px;
     font-weight: 700;
@@ -1507,8 +1582,8 @@ body {
 
 /* Contact section */
 .contact-section {
-    padding: 100px 20px;
-    background-color: var(--white);
+    padding: var(--section-padding);
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
 }
 
 .contact-content {
@@ -1518,7 +1593,7 @@ body {
 }
 
 .contact-section h2 {
-    font-size: 2.8rem;
+    font-size: var(--font-size-h1);
     color: var(--text-primary);
     margin-bottom: 50px;
     font-weight: 700;
@@ -1530,10 +1605,10 @@ body {
 }
 
 .contact-intro .lead {
-    font-size: 1.3rem;
+    font-size: var(--font-size-lead);
     line-height: 1.8;
     color: var(--text-secondary);
-    max-width: 800px;
+    max-width: var(--max-text-width);
     margin: 0 auto;
 }
 
@@ -1795,11 +1870,11 @@ footer {
     }
 
     .hero-section h1 {
-        font-size: 2.5rem;
+        font-size: var(--font-size-hero-mobile);
     }
 
     .hero-section h2 {
-        font-size: 1.4rem;
+        font-size: var(--font-size-large);
     }
 
     .hero-cta {
@@ -1971,12 +2046,12 @@ footer {
         height: 50vh;
     }
 
-    .hero-section h1 {
+        .hero-section h1 {
         font-size: 2rem;
     }
-    
+
     .hero-section h2 {
-        font-size: 1.2rem;
+        font-size: var(--font-size-lead);
     }
 
     .hero-cta {
