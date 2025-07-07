@@ -72,10 +72,12 @@
 /* Tablet Adjustments */
 @media (min-width: 768px) {
     :root {
-        --font-size-xl: 1.75rem;      /* 28px */
-        --font-size-2xl: 2.25rem;     /* 36px */
-        --font-size-3xl: 2.875rem;    /* 46px */
-        --font-size-4xl: 3.5rem;      /* 56px */
+        --font-size-base: 1.25rem;    /* 20px - Larger body text */
+        --font-size-lg: 1.375rem;     /* 22px */
+        --font-size-xl: 1.5rem;       /* 24px - Smaller headers */
+        --font-size-2xl: 1.875rem;    /* 30px - Smaller headers */
+        --font-size-3xl: 2.25rem;     /* 36px - Smaller headers */
+        --font-size-4xl: 2.75rem;     /* 44px - Smaller headers */
         --section-padding: var(--spacing-4xl) var(--spacing-xl);
     }
 }
@@ -83,7 +85,12 @@
 /* Desktop Adjustments */
 @media (min-width: 1024px) {
     :root {
-        --font-size-4xl: 4rem;        /* 64px */
+        --font-size-base: 1.375rem;   /* 22px - Even larger body text */
+        --font-size-lg: 1.5rem;       /* 24px */
+        --font-size-xl: 1.75rem;      /* 28px - Smaller headers */
+        --font-size-2xl: 2.125rem;    /* 34px - Smaller headers */
+        --font-size-3xl: 2.5rem;      /* 40px - Smaller headers */
+        --font-size-4xl: 3rem;        /* 48px - Smaller headers */
         --section-padding: var(--spacing-4xl) var(--spacing-2xl);
     }
 }
@@ -101,6 +108,13 @@ body {
     text-rendering: optimizeLegibility;
 }
 
+/* Desktop body text scaling */
+@media (min-width: 768px) {
+    body {
+        font-size: var(--font-size-base);
+    }
+}
+
 /* Heading Hierarchy */
 h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
@@ -112,22 +126,27 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
     font-size: var(--font-size-3xl);
     font-weight: 700;
+    color: var(--text-primary);
 }
 
 h2 {
     font-size: var(--font-size-2xl);
+    color: var(--text-primary);
 }
 
 h3 {
     font-size: var(--font-size-xl);
+    color: var(--text-primary);
 }
 
 h4 {
     font-size: var(--font-size-lg);
+    color: var(--text-primary);
 }
 
 h5, h6 {
     font-size: var(--font-size-base);
+    color: var(--text-primary);
 }
 
 /* Paragraph Styles */
@@ -135,6 +154,14 @@ p {
     margin-bottom: var(--spacing-md);
     line-height: var(--line-height-relaxed);
     color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+/* Desktop paragraph text scaling */
+@media (min-width: 768px) {
+    p {
+        font-size: var(--font-size-base);
+    }
 }
 
 .lead {
