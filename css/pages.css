@@ -678,17 +678,7 @@
     flex-wrap: wrap;
 }
 
-/* Desktop/Tablet: Additional padding between header and page headers */
-@media (min-width: 769px) {
-    .about-section,
-    .services-section,
-    .contact-section,
-    .approach-section,
-    .expertise-section,
-    .play-project-section {
-        padding-top: calc(var(--header-height) + var(--spacing-4xl));
-    }
-}
+
 
 /* Responsive Page Adjustments */
 @media (max-width: 768px) {
@@ -707,7 +697,10 @@
         clear: both;
     }
     
-    .about-text-intro h1 {
+    .about-text-intro h1,
+    .services-content h1,
+    .contact-content h1,
+    .approach-content h1 {
         font-size: var(--font-size-3xl);
     }
     
@@ -739,4 +732,17 @@
         flex-direction: column;
         align-items: center;
     }
-} 
+}
+
+/* Desktop/Tablet: Additional padding between header and page headers */
+/* This must come AFTER the individual section definitions to override the shorthand padding */
+@media (min-width: 769px) {
+    .about-section,
+    .services-section,
+    .contact-section,
+    .approach-section,
+    .expertise-section,
+    .play-project-section {
+        padding-top: calc(var(--header-height) + var(--spacing-4xl)) !important;
+    }
+}
