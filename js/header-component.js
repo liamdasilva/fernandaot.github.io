@@ -5,8 +5,8 @@ class HeaderComponent {
         this.render();
         this.attachEventListeners();
         
-        // DEBUG: Analyze header overlap issues
-        this.debugHeaderOverlap();
+        // Initialize header height calculation
+        this.updateHeaderHeight();
     }
 
     getCurrentPage() {
@@ -159,7 +159,7 @@ class HeaderComponent {
         try {
             const header = document.querySelector('.main-nav');
             if (!header) {
-                console.warn('Header element not found - using CSS fallback values');
+                // Header element not found - using CSS fallback values
                 return;
             }
             
@@ -180,9 +180,6 @@ class HeaderComponent {
             document.documentElement.style.setProperty('--header-height-tablet', `${headerHeight}px`);
             document.documentElement.style.setProperty('--header-height-desktop', `${headerHeight}px`);
             
-            // Debug logging
-            console.log(`🔧 Header height updated: ${headerHeight}px (${breakpoint} breakpoint at ${viewportWidth}px)`);
-            
             // Trigger custom event for other components to listen to
             document.dispatchEvent(new CustomEvent('headerHeightUpdated', {
                 detail: { 
@@ -193,8 +190,7 @@ class HeaderComponent {
             }));
             
         } catch (error) {
-            console.error('Failed to calculate header height:', error);
-            console.log('Using CSS fallback values');
+            // Header height calculation failed, CSS fallback values will be used
         }
     }
     
