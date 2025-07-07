@@ -405,15 +405,26 @@
     margin-bottom: var(--spacing-md);
 }
 
+.service-category p {
+    margin-bottom: var(--spacing-lg);
+}
+
+.service-category .price {
+    margin: var(--spacing-lg) 0;
+    display: block;
+}
+
 .service-category ul {
     list-style: none;
     padding: 0;
+    margin-top: var(--spacing-md);
 }
 
 .service-category li {
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
     padding-left: var(--spacing-lg);
     position: relative;
+    line-height: var(--line-height-relaxed);
 }
 
 .service-category li:before {
@@ -553,6 +564,7 @@
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--spacing-xl);
     margin: var(--spacing-2xl) 0;
+    align-items: start;
 }
 
 .info-item {
@@ -560,6 +572,7 @@
     padding: var(--spacing-xl);
     border-radius: var(--border-radius-lg);
     box-shadow: 0 4px 12px var(--shadow-color);
+    height: fit-content;
 }
 
 .info-item h3 {
