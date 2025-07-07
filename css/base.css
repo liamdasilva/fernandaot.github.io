@@ -66,7 +66,7 @@
     --transition-slow: 0.5s ease;
     
     /* Header Height - Dynamic (includes padding) */
-    --header-height: 40px;
+    --header-height: 80px;
 }
 
 /* Tablet Adjustments */
