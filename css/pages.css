@@ -24,23 +24,49 @@
     padding: var(--spacing-xl);
     border-radius: var(--border-radius-lg);
     box-shadow: 0 4px 12px var(--shadow-color);
-    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    transition: all var(--transition-normal);
+    cursor: pointer;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid transparent;
 }
 
 .expertise-item:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 25px var(--shadow-color);
+    border-color: var(--primary-color);
+    min-height: auto;
+    background-color: var(--white);
 }
 
 .expertise-item h3 {
     color: var(--primary-color);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: 0;
     font-size: var(--font-size-xl);
+    transition: margin-bottom var(--transition-normal);
+}
+
+.expertise-item:hover h3 {
+    margin-bottom: var(--spacing-md);
 }
 
 .expertise-item p {
     color: var(--text-secondary);
     line-height: var(--line-height-relaxed);
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all var(--transition-normal);
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.expertise-item:hover p {
+    opacity: 1;
+    max-height: 200px;
+    margin-top: var(--spacing-sm);
 }
 
 /* About Page Styles */

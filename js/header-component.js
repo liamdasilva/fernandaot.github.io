@@ -34,9 +34,6 @@ class HeaderComponent {
             <header>
                 <nav class="main-nav">
                     <div class="nav-container">
-                        <div class="nav-brand">
-                            <span class="brand-text">Fernanda Da Silva OT</span>
-                        </div>
                         <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
                             <span class="hamburger-line"></span>
                             <span class="hamburger-line"></span>

@@ -30,12 +30,6 @@
     min-height: var(--header-height);
 }
 
-/* Brand/Logo */
-.nav-brand {
-    display: flex;
-    align-items: center;
-}
-
 .brand-text {
     font-size: var(--font-size-xl);
     font-weight: 600;
