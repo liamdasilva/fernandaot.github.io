@@ -255,7 +255,7 @@
     .process-steps {
         grid-template-columns: 1fr;
     }
-    
+
     .step-item {
         flex-direction: column;
         text-align: center;
