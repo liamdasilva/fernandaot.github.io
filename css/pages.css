@@ -709,6 +709,8 @@
     }
     
     .expertise-grid,
+    .education-grid,
+    .certifications-grid,
     .services-grid,
     .pricing-grid,
     .contact-methods,
@@ -716,6 +718,13 @@
     .steps-grid,
     .faq-grid {
         grid-template-columns: 1fr;
+        justify-items: center;
+    }
+    
+    .education-item,
+    .certification-item {
+        max-width: 100%;
+        width: 100%;
     }
     
     .approach-pillars {
