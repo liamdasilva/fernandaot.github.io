@@ -62,6 +62,12 @@
     --touch-target-min: 44px;
     --touch-target-comfortable: 48px;
     --touch-target-large: 56px;
+    
+    /* Dynamic Header Heights - will be updated by JavaScript */
+    /* Fallback values work without JavaScript (confirmed requirement) */
+    --header-height-mobile: 78px;
+    --header-height-desktop: 80px;
+    --header-height-tablet: 75px;
 }
 
 body {
@@ -89,7 +95,14 @@ body {
 
 /* Main page sections that need header clearance */
 .main-page-section {
-    padding-top: 90px;
+    padding-top: var(--header-height-mobile, 78px);
+}
+
+/* Tablet main page section adjustments */
+@media (min-width: 481px) and (max-width: 768px) {
+    .main-page-section {
+        padding-top: var(--header-height-tablet, 75px);
+    }
 }
 
 /* Desktop overrides */
@@ -107,7 +120,7 @@ body {
     }
     
     .main-page-section {
-        padding-top: 120px;
+        padding-top: var(--header-height-desktop, 80px);
     }
 }
 
@@ -260,13 +273,83 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 90px;
+    padding-top: var(--header-height-mobile, 78px);
+    margin-top: calc(-1 * var(--header-height-mobile, 78px));
+}
+
+/* Tablet hero adjustments */
+@media (min-width: 481px) and (max-width: 768px) {
+    .hero-section {
+        padding-top: var(--header-height-tablet, 75px);
+        margin-top: calc(-1 * var(--header-height-tablet, 75px));
+    }
 }
 
 /* Desktop hero adjustments */
 @media (min-width: 769px) {
     .hero-section {
-        padding-top: 80px;
+        padding-top: var(--header-height-desktop, 80px);
+        margin-top: calc(-1 * var(--header-height-desktop, 80px));
+    }
+}
+
+/* Systematic approach for all page sections that need header clearance */
+.about-section,
+.contact-section,
+.services-section,
+.approach-section,
+.play-project-section,
+.page-section-gradient {
+    padding-top: var(--header-height-mobile, 78px);
+}
+
+/* Special handling for sections that already have padding */
+.page-section-gradient {
+    padding-top: calc(var(--header-height-mobile, 78px) + 60px);
+}
+
+/* Catch-all rule for any section that's the first child of main */
+main > section:first-child:not(.hero-section) {
+    padding-top: var(--header-height-mobile, 78px);
+}
+
+/* Tablet spacing for all page sections */
+@media (min-width: 481px) and (max-width: 768px) {
+    .about-section,
+    .contact-section,
+    .services-section,
+    .approach-section,
+    .play-project-section,
+    .page-section-gradient {
+        padding-top: var(--header-height-tablet, 75px);
+    }
+    
+    .page-section-gradient {
+        padding-top: calc(var(--header-height-tablet, 75px) + 60px);
+    }
+    
+    main > section:first-child:not(.hero-section) {
+        padding-top: var(--header-height-tablet, 75px);
+    }
+}
+
+/* Desktop spacing for all page sections */
+@media (min-width: 769px) {
+    .about-section,
+    .contact-section,
+    .services-section,
+    .approach-section,
+    .play-project-section,
+    .page-section-gradient {
+        padding-top: var(--header-height-desktop, 80px);
+    }
+    
+    .page-section-gradient {
+        padding-top: calc(var(--header-height-desktop, 80px) + 100px);
+    }
+    
+    main > section:first-child:not(.hero-section) {
+        padding-top: var(--header-height-desktop, 80px);
     }
 }
 
@@ -312,6 +395,7 @@ body {
     position: relative;
     min-height: 100vh;
     width: 100%;
+    padding-top: 0;
 }
 
 .headshot-fullscreen {
@@ -640,6 +724,7 @@ body {
 .about-section {
     padding: 0;
     background-color: var(--white);
+    /* Header clearance will be added by the systematic rules above */
 }
 
 .about-content {
@@ -2032,6 +2117,11 @@ footer {
 /* Large tablet and small desktop improvements */
 @media (max-width: 768px) and (min-width: 481px) {
     /* Typography scaling for tablets */
+    .hero-section {
+        padding-top: var(--header-height-tablet, 75px) !important;
+        margin-top: calc(-1 * var(--header-height-tablet, 75px)) !important;
+    }
+    
     .hero-section h1 {
         font-size: 2.0rem;
         line-height: 1.1;
@@ -2059,7 +2149,7 @@ footer {
         height: 45vh;
         min-height: 320px;
     }
-    
+
     .headshot-fullscreen {
         height: 45vh;
         min-height: 320px;
@@ -2207,6 +2297,11 @@ footer {
     }
 
     /* Hero section mobile improvements */
+    .hero-section {
+        padding-top: var(--header-height-mobile, 78px) !important;
+        margin-top: calc(-1 * var(--header-height-mobile, 78px)) !important;
+    }
+    
     .hero-content {
         grid-template-columns: 1fr;
         min-height: auto;
@@ -2489,6 +2584,11 @@ footer {
 /* Enhanced Mobile Experience for Small Screens */
 @media (max-width: 480px) {
     /* Optimized mobile typography */
+    .hero-section {
+        padding-top: var(--header-height-mobile, 78px) !important;
+        margin-top: calc(-1 * var(--header-height-mobile, 78px)) !important;
+    }
+    
     .hero-section h1 {
         font-size: 1.8rem;
         line-height: 1.1;

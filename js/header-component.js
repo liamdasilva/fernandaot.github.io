@@ -4,6 +4,9 @@ class HeaderComponent {
         this.currentPage = this.getCurrentPage();
         this.render();
         this.attachEventListeners();
+        
+        // DEBUG: Analyze header overlap issues
+        this.debugHeaderOverlap();
     }
 
     getCurrentPage() {
@@ -51,6 +54,9 @@ class HeaderComponent {
     render() {
         // Insert header at the beginning of body
         document.body.insertAdjacentHTML('afterbegin', this.getHeaderHTML());
+        
+        // Update CSS variables with actual header height
+        this.updateHeaderHeight();
     }
 
     attachEventListeners() {
@@ -141,6 +147,121 @@ class HeaderComponent {
             });
         });
     }
+
+    updateHeaderHeight() {
+        this.calculateAndSetHeaderHeight();
+        
+        // Handle dynamic height changes (confirmed requirement)
+        this.setupHeaderHeightMonitoring();
+    }
+    
+    calculateAndSetHeaderHeight() {
+        try {
+            const header = document.querySelector('.main-nav');
+            if (!header) {
+                console.warn('Header element not found - using CSS fallback values');
+                return;
+            }
+            
+            // Get actual header height
+            const headerHeight = header.offsetHeight;
+            const viewportWidth = window.innerWidth;
+            
+            // Determine appropriate breakpoint
+            let breakpoint = 'mobile';
+            if (viewportWidth >= 769) {
+                breakpoint = 'desktop';
+            } else if (viewportWidth >= 481) {
+                breakpoint = 'tablet';
+            }
+            
+            // Update CSS variables with measured values
+            document.documentElement.style.setProperty('--header-height-mobile', `${headerHeight}px`);
+            document.documentElement.style.setProperty('--header-height-tablet', `${headerHeight}px`);
+            document.documentElement.style.setProperty('--header-height-desktop', `${headerHeight}px`);
+            
+            // Debug logging
+            console.log(`🔧 Header height updated: ${headerHeight}px (${breakpoint} breakpoint at ${viewportWidth}px)`);
+            
+            // Trigger custom event for other components to listen to
+            document.dispatchEvent(new CustomEvent('headerHeightUpdated', {
+                detail: { 
+                    height: headerHeight, 
+                    breakpoint: breakpoint,
+                    viewport: viewportWidth
+                }
+            }));
+            
+        } catch (error) {
+            console.error('Failed to calculate header height:', error);
+            console.log('Using CSS fallback values');
+        }
+    }
+    
+    setupHeaderHeightMonitoring() {
+        let resizeTimeout;
+        
+        // Debounced resize handler
+        const handleResize = () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                this.calculateAndSetHeaderHeight();
+            }, 150); // Slightly longer delay for better performance
+        };
+        
+        // Monitor window resize
+        window.addEventListener('resize', handleResize, { passive: true });
+        
+        // Monitor orientation changes specifically
+        window.addEventListener('orientationchange', () => {
+            // Delay to allow orientation change to complete
+            setTimeout(() => {
+                this.calculateAndSetHeaderHeight();
+            }, 300);
+        });
+        
+        // Monitor for potential DOM changes that might affect header height
+        if (window.MutationObserver) {
+            const headerObserver = new MutationObserver((mutations) => {
+                let shouldUpdate = false;
+                
+                mutations.forEach(mutation => {
+                    // Check if changes might affect header size
+                    if (mutation.type === 'childList' || 
+                        (mutation.type === 'attributes' && 
+                         ['class', 'style'].includes(mutation.attributeName))) {
+                        shouldUpdate = true;
+                    }
+                });
+                
+                if (shouldUpdate) {
+                    // Debounce DOM change updates
+                    clearTimeout(this.domChangeTimeout);
+                    this.domChangeTimeout = setTimeout(() => {
+                        this.calculateAndSetHeaderHeight();
+                    }, 100);
+                }
+            });
+            
+            // Observe header and navigation for changes
+            const header = document.querySelector('.main-nav');
+            if (header) {
+                headerObserver.observe(header, {
+                    childList: true,
+                    subtree: true,
+                    attributes: true,
+                    attributeFilter: ['class', 'style']
+                });
+            }
+        }
+        
+        // Initial calculation after a short delay to ensure DOM is ready
+        setTimeout(() => {
+            this.calculateAndSetHeaderHeight();
+        }, 100);
+    }
+
+
 }
 
 // Initialize header when DOM is loaded
