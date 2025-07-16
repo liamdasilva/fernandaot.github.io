@@ -22,7 +22,7 @@
 /* Navigation Container */
 .nav-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: var(--spacing-md) var(--spacing-lg);
     max-width: var(--max-width-content);
@@ -133,6 +133,7 @@
 /* Mobile Navigation Styles */
 @media (max-width: 768px) {
     .nav-container {
+        justify-content: space-between;
         padding: var(--spacing-sm) var(--spacing-md);
     }
     

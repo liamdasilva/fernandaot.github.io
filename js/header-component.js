@@ -20,7 +20,6 @@ class HeaderComponent {
             { href: 'index.html', text: 'Home' },
             { href: 'about.html', text: 'About Me' },
             { href: 'approach.html', text: 'My Approach' },
-            { href: 'play-project.html', text: 'The PLAY Project' },
             { href: 'services.html', text: 'Services & Fees' },
             { href: 'contact.html', text: 'Contact Me' }
         ];
