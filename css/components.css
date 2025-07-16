@@ -38,7 +38,7 @@
 .btn-primary:hover:not(:disabled) {
     background-color: var(--accent-color);
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(212, 165, 165, 0.3);
+    box-shadow: 0 4px 12px rgba(139, 154, 122, 0.3);
 }
 
 .btn-secondary {
@@ -60,7 +60,7 @@
 }
 
 .btn-outline:hover:not(:disabled) {
-    background-color: var(--light-rose);
+    background-color: var(--light-sage);
     border-color: var(--primary-color);
     color: var(--primary-color);
 }
@@ -249,12 +249,12 @@
 }
 
 .alert-info {
-    background-color: var(--soft-lavender);
+    background-color: var(--soft-clay);
     border-left-color: var(--secondary-color);
 }
 
 .alert-success {
-    background-color: var(--light-rose);
+    background-color: var(--light-sage);
     border-left-color: var(--primary-color);
 }
 

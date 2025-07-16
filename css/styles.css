@@ -220,7 +220,7 @@
 }
 
 .cert-highlight {
-    background: var(--light-rose);
+    background: var(--light-sage);
     padding: var(--spacing-lg);
     border-radius: var(--border-radius-md);
     transition: transform var(--transition-normal);

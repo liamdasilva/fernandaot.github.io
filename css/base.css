@@ -9,19 +9,19 @@
 
 /* CSS Custom Properties (Variables) */
 :root {
-    /* Brand Colors */
-    --primary-color: #d4a5a5;          /* Soft dusty rose */
-    --secondary-color: #b8a9d4;        /* Soft lavender */
-    --accent-color: #c6aa5d;           /* Warm gold */
-    --warm-cream: #faf7f4;             /* Warm cream background */
-    --light-rose: #f2e6e6;             /* Light rose background */
-    --soft-lavender: #f0edfa;          /* Soft lavender background */
-    --text-primary: #5a4a4a;           /* Warm brown-gray text */
-    --text-secondary: #6b5b5b;         /* Medium warm gray */
-    --text-light: #8a7a7a;             /* Light warm gray */
+    /* Brand Colors - Earth Tone Palette */
+    --primary-color: #8B9A7A;          /* Warm sage green */
+    --secondary-color: #B8967A;        /* Soft terracotta clay */
+    --accent-color: #C6A55D;           /* Rich warm ochre */
+    --warm-cream: #F7F5F1;             /* Natural linen background */
+    --light-sage: #E8EBE3;             /* Light sage background */
+    --soft-clay: #F0EBE6;              /* Soft clay background */
+    --text-primary: #3A3A2A;           /* Rich earth brown text */
+    --text-secondary: #4A5A3A;         /* Warm forest green */
+    --text-light: #6B7A5B;             /* Light warm sage */
     --white: #ffffff;
-    --shadow-color: rgba(138, 122, 122, 0.15);
-    --gradient-primary: linear-gradient(135deg, var(--warm-cream) 0%, var(--light-rose) 100%);
+    --shadow-color: rgba(58, 58, 42, 0.15);
+    --gradient-primary: linear-gradient(135deg, var(--warm-cream) 0%, var(--light-sage) 100%);
     
     /* Typography Scale */
     --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;

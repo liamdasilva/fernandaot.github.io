@@ -75,7 +75,7 @@
 
 .nav-menu a:hover {
     color: var(--primary-color);
-    background-color: var(--light-rose);
+    background-color: var(--light-sage);
 }
 
 .nav-menu a:focus {
@@ -85,7 +85,7 @@
 
 .nav-menu a.active {
     color: var(--primary-color);
-    background-color: var(--light-rose);
+    background-color: var(--light-sage);
     font-weight: 600;
 }
 
@@ -168,7 +168,7 @@
     
     .nav-menu li {
         margin: 0;
-        border-bottom: 1px solid var(--light-rose);
+        border-bottom: 1px solid var(--light-sage);
     }
     
     .nav-menu li:last-child {
@@ -185,7 +185,7 @@
     
     .nav-menu a:hover,
     .nav-menu a.active {
-        background-color: var(--light-rose);
+        background-color: var(--light-sage);
     }
 }
 

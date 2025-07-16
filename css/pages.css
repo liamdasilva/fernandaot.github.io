@@ -148,7 +148,7 @@
 }
 
 .education-item {
-    background: var(--light-rose);
+    background: var(--light-sage);
     padding: var(--spacing-xl);
     border-radius: var(--border-radius-md);
 }
@@ -208,7 +208,7 @@
 
 .training-year {
     margin-bottom: var(--spacing-2xl);
-    background: var(--soft-lavender);
+    background: var(--soft-clay);
     padding: var(--spacing-xl);
     border-radius: var(--border-radius-md);
 }
@@ -475,7 +475,7 @@
 }
 
 .payment-item {
-    background: var(--light-rose);
+    background: var(--light-sage);
     padding: var(--spacing-xl);
     border-radius: var(--border-radius-md);
 }
@@ -672,7 +672,7 @@
 
 .cta-section h2 {
     color: var(--text-primary);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
 }
 
 .cta-section p {
@@ -700,6 +700,7 @@
 /* Responsive Page Adjustments */
 @media (max-width: 768px) {
     /* Mobile: Add padding to account for fixed header */
+    .hero-section,
     .about-section,
     .services-section,
     .contact-section,
@@ -773,6 +774,7 @@
 /* Desktop/Tablet: Additional padding between header and page headers */
 /* This must come AFTER the individual section definitions to override the shorthand padding */
 @media (min-width: 769px) {
+    .hero-section,
     .about-section,
     .services-section,
     .contact-section,
