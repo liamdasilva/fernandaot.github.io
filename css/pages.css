@@ -182,6 +182,7 @@
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--spacing-xl);
     margin: var(--spacing-2xl) 0;
+    justify-items: center;
 }
 
 .certification-item {

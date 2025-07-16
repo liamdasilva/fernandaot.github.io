@@ -209,7 +209,15 @@
 .play-logo-large {
     max-width: 100%;
     height: auto;
+    display: block;
+    margin: 0 auto;
     transition: transform var(--transition-normal);
+}
+
+.cert-logo-large {
+    width: 150px;
+    height: 90px;
+    object-fit: contain;
 }
 
 .logo:hover,
