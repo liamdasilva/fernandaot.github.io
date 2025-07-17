@@ -196,10 +196,36 @@
 }
 
 .headshot:hover,
-.headshot-fullscreen:hover,
 .headshot-large:hover {
     transform: translateY(-2px);
     box-shadow: 0 12px 40px var(--shadow-color);
+}
+
+/* Desktop hover effect */
+@media (min-width: 1025px) {
+    .headshot-fullscreen:hover {
+        transform: scale(1.3) translateY(-2px);
+        transform-origin: top right;
+        box-shadow: 0 12px 40px var(--shadow-color);
+    }
+}
+
+/* Tablet hover effect */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .headshot-fullscreen:hover {
+        transform: scale(1.15) translateY(-2px);
+        transform-origin: top right;
+        box-shadow: 0 12px 40px var(--shadow-color);
+    }
+}
+
+/* Mobile hover effect */
+@media (max-width: 768px) {
+    .headshot-fullscreen:hover {
+        transform: scale(1) translateY(-2px);
+        transform-origin: center;
+        box-shadow: 0 12px 40px var(--shadow-color);
+    }
 }
 
 /* Logo Styles */
