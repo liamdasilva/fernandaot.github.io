@@ -56,6 +56,7 @@
 .expertise-item p {
     color: var(--text-secondary);
     line-height: var(--line-height-relaxed);
+    font-size: var(--font-size-base);
     opacity: 0;
     max-height: 0;
     overflow: hidden;
@@ -158,6 +159,7 @@
     color: var(--primary-color);
     margin-top: 0;
     margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-xl);
 }
 
 .education-item ul {
@@ -169,6 +171,7 @@
     margin-bottom: var(--spacing-sm);
     padding-left: var(--spacing-lg);
     position: relative;
+    font-size: var(--font-size-base);
 }
 
 .education-item li:before {
@@ -203,6 +206,7 @@
 .certification-item h3 {
     color: var(--primary-color);
     margin: 0 0 var(--spacing-md) 0;
+    font-size: var(--font-size-xl);
 }
 
 .training-list {
@@ -231,6 +235,7 @@
     margin-bottom: var(--spacing-sm);
     padding-left: var(--spacing-lg);
     position: relative;
+    font-size: var(--font-size-base);
 }
 
 .training-year li:before {
@@ -256,7 +261,8 @@
     text-align: center;
     font-size: var(--font-size-4xl);
     color: var(--text-primary);
-    margin-bottom: var(--spacing-2xl);
+    margin-bottom: var(--spacing-3xl);
+    font-weight: 700;
 }
 
 .approach-intro {
@@ -269,25 +275,6 @@
     color: var(--text-secondary);
     max-width: var(--max-width-text);
     margin: 0 auto;
-}
-
-/* Approach Page Styles */
-.approach-section {
-    padding: var(--section-padding);
-    background: var(--gradient-primary);
-}
-
-.approach-content {
-    max-width: var(--max-width-content);
-    margin: 0 auto;
-}
-
-.approach-content h1 {
-    text-align: center;
-    color: var(--text-primary);
-    margin-bottom: var(--spacing-3xl);
-    font-size: var(--font-size-3xl);
-    font-weight: 700;
 }
 
 .approach-content h2 {
@@ -441,18 +428,20 @@
     color: var(--primary-color);
     margin-top: 0;
     margin-bottom: var(--spacing-xs);
-    line-height: 1.3;
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-tight);
 }
 
 .service-category p {
     margin-bottom: var(--spacing-sm);
-    line-height: 1.4;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
 }
 
 .service-category .price {
     margin: var(--spacing-sm) 0;
     display: block;
-    line-height: 1.3;
+    line-height: var(--line-height-tight);
     font-size: var(--font-size-lg);
 }
 
@@ -466,7 +455,8 @@
     margin-bottom: var(--spacing-xs);
     padding-left: var(--spacing-lg);
     position: relative;
-    line-height: 1.4;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
 }
 
 .service-category li:before {
@@ -501,6 +491,7 @@
     color: var(--primary-color);
     margin-top: 0;
     margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-xl);
 }
 
 .price {
@@ -527,6 +518,7 @@
     color: var(--primary-color);
     margin-top: 0;
     margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-xl);
 }
 
 .payment-item ul {
@@ -538,6 +530,7 @@
     margin-bottom: var(--spacing-sm);
     padding-left: var(--spacing-lg);
     position: relative;
+    font-size: var(--font-size-base);
 }
 
 .payment-item li:before {
@@ -601,6 +594,7 @@
 .contact-method h2 {
     color: var(--primary-color);
     margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-2xl);
 }
 
 .info-grid {
@@ -623,6 +617,7 @@
     color: var(--primary-color);
     margin-top: 0;
     margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-xl);
 }
 
 .info-item ul {
@@ -634,6 +629,7 @@
     margin-bottom: var(--spacing-sm);
     padding-left: var(--spacing-lg);
     position: relative;
+    font-size: var(--font-size-base);
 }
 
 .info-item li:before {
