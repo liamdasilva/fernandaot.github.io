@@ -78,6 +78,47 @@
     margin-top: var(--spacing-sm);
 }
 
+/* Mobile: Click to expand instead of hover */
+@media (max-width: 768px) {
+    /* Disable hover effects on mobile */
+    .expertise-item:hover {
+        transform: none;
+        box-shadow: 0 4px 12px var(--shadow-color);
+        border-color: transparent;
+        min-height: 120px;
+        background-color: var(--white);
+    }
+    
+    .expertise-item:hover h3 {
+        margin-bottom: 0;
+    }
+    
+    .expertise-item:hover p {
+        opacity: 0;
+        max-height: 0;
+        margin-top: 0;
+    }
+    
+    /* Expanded state for mobile clicks */
+    .expertise-item.expanded {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 25px var(--shadow-color);
+        border-color: var(--primary-color);
+        min-height: auto;
+        background-color: var(--white);
+    }
+    
+    .expertise-item.expanded h3 {
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .expertise-item.expanded p {
+        opacity: 1;
+        max-height: 200px;
+        margin-top: var(--spacing-sm);
+    }
+}
+
 /* About Page Styles */
 .about-section {
     padding: var(--section-padding);

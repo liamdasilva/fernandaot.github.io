@@ -103,6 +103,9 @@ class HeaderComponent {
         
         // Navigation transitions
         this.initializeNavigationTransitions();
+        
+        // Initialize expertise section interactions (mobile)
+        this.initializeExpertiseInteractions();
     }
 
     initializeScrollHeader() {
@@ -253,6 +256,104 @@ class HeaderComponent {
         }, 100);
     }
 
+    initializeExpertiseInteractions() {
+        // Only run on pages that have expertise sections
+        const expertiseItems = document.querySelectorAll('.expertise-item');
+        if (expertiseItems.length === 0) return;
+        
+        // Function to check if we're on mobile
+        const isMobile = () => window.innerWidth <= 768;
+        
+        // Add click event listeners to expertise items
+        expertiseItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                // Only handle clicks on mobile devices
+                if (!isMobile()) return;
+                
+                // Prevent default behavior
+                e.preventDefault();
+                
+                // Check if this item is currently expanded
+                const isExpanded = item.classList.contains('expanded');
+                
+                if (isExpanded) {
+                    // If expanded, collapse it
+                    item.classList.remove('expanded');
+                } else {
+                    // If collapsed, expand it and collapse others
+                    // First collapse all other items
+                    expertiseItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('expanded');
+                        }
+                    });
+                    
+                    // Then expand this item
+                    item.classList.add('expanded');
+                }
+            });
+            
+            // Add keyboard support for accessibility
+            item.addEventListener('keydown', (e) => {
+                if (!isMobile()) return;
+                
+                // Handle Enter and Space key presses
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    item.click(); // Trigger the click event
+                }
+            });
+            
+            // Make items focusable on mobile for keyboard navigation
+            if (isMobile()) {
+                item.setAttribute('tabindex', '0');
+                item.setAttribute('role', 'button');
+                item.setAttribute('aria-expanded', 'false');
+            }
+        });
+        
+        // Handle window resize to reset functionality when switching between mobile/desktop
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                const mobile = isMobile();
+                
+                expertiseItems.forEach(item => {
+                    if (mobile) {
+                        // Set up mobile attributes
+                        item.setAttribute('tabindex', '0');
+                        item.setAttribute('role', 'button');
+                        item.setAttribute('aria-expanded', item.classList.contains('expanded') ? 'true' : 'false');
+                    } else {
+                        // Remove mobile attributes and expanded state for desktop
+                        item.removeAttribute('tabindex');
+                        item.removeAttribute('role');
+                        item.removeAttribute('aria-expanded');
+                        item.classList.remove('expanded');
+                    }
+                });
+            }, 150);
+        });
+        
+        // Update aria-expanded when items are toggled
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                    const item = mutation.target;
+                    if (item.classList.contains('expertise-item') && isMobile()) {
+                        const isExpanded = item.classList.contains('expanded');
+                        item.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+                    }
+                }
+            });
+        });
+        
+        // Observe each expertise item for class changes
+        expertiseItems.forEach(item => {
+            observer.observe(item, { attributes: true, attributeFilter: ['class'] });
+        });
+    }
 
 }
 
