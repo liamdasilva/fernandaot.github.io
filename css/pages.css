@@ -131,7 +131,7 @@
 }
 
 .about-intro {
-    margin-bottom: var(--spacing-4xl);
+    margin-bottom: var(--spacing-xl);
 }
 
 .about-intro::after {
@@ -253,7 +253,7 @@
 
 .certification-item h3 {
     color: var(--primary-color);
-    margin: 0 0 var(--spacing-md) 0;
+    margin: var(--spacing-md) 0 var(--spacing-md) 0;
     font-size: var(--font-size-xl);
 }
 
@@ -880,6 +880,30 @@
         margin-bottom: var(--spacing-sm);
     }
     
+    /* Fix spacing issues in About page sections */
+    .about-content-sections {
+        padding: var(--spacing-xl);
+    }
+    
+    .about-content-sections h2 {
+        margin-top: var(--spacing-lg);
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .education-grid {
+        margin: var(--spacing-lg) 0;
+        gap: var(--spacing-lg);
+    }
+    
+    .education-item {
+        padding: var(--spacing-lg);
+    }
+    
+    .certifications-grid {
+        margin: var(--spacing-lg) 0;
+        gap: var(--spacing-lg);
+    }
+    
     .education-grid,
     .certifications-grid,
     .services-grid,
@@ -911,6 +935,35 @@
     .outcomes-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--spacing-lg);
+    }
+    
+    /* Optimize approach page spacing and icons for mobile */
+    .approach-content {
+        padding: 0 var(--spacing-md);
+    }
+    
+    .pillar,
+    .method-item,
+    .outcome-item {
+        padding: var(--spacing-lg);
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .approach-content h2 {
+        margin: var(--spacing-lg) 0 var(--spacing-md);
+    }
+    
+    .approach-content > p {
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    /* Make icons larger on mobile for approach page */
+    .approach-pillars .pillar-icon,
+    .methods-grid .pillar-icon,
+    .outcomes-grid .pillar-icon {
+        width: 56px;
+        height: 56px;
+        margin-bottom: var(--spacing-md);
     }
     
     .approach-content h1 {
