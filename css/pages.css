@@ -644,6 +644,35 @@
     font-weight: bold;
 }
 
+.languages-card {
+    text-align: center;
+}
+
+.languages-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+.languages-label {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: var(--font-size-lg);
+    margin-right: var(--spacing-xs);
+}
+
+.language {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+}
+
+.language-separator {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
 .steps-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

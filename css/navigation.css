@@ -206,24 +206,6 @@
     }
 }
 
-/* Skip Link for Accessibility */
-.skip-link {
-    position: absolute;
-    top: -40px;
-    left: 6px;
-    background: var(--primary-color);
-    color: var(--white);
-    padding: 8px;
-    text-decoration: none;
-    border-radius: var(--border-radius-sm);
-    z-index: 2000;
-    transition: top var(--transition-fast);
-}
-
-.skip-link:focus {
-    top: 6px;
-}
-
 /* Navigation Utilities */
 .nav-spacer {
     height: var(--header-height);
