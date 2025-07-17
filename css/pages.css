@@ -662,6 +662,7 @@
 .language {
     font-size: var(--font-size-base);
     line-height: var(--line-height-base);
+    margin-right: var(--spacing-xl);
 }
 
 .language-separator {
