@@ -853,7 +853,33 @@
         font-size: var(--font-size-xl);
     }
     
-    .expertise-grid,
+    .expertise-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+        justify-items: stretch;
+    }
+    
+    /* Adjust expertise item sizing for mobile two-column layout */
+    .expertise-item {
+        padding: var(--spacing-lg);
+        min-height: 100px;
+    }
+    
+    .expertise-item h3 {
+        font-size: var(--font-size-lg);
+        line-height: var(--line-height-tight);
+    }
+    
+    .expertise-item p {
+        font-size: var(--font-size-sm);
+    }
+    
+    .pillar-icon {
+        width: 48px;
+        height: 48px;
+        margin-bottom: var(--spacing-sm);
+    }
+    
     .education-grid,
     .certifications-grid,
     .services-grid,
