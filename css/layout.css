@@ -269,6 +269,13 @@
     margin-bottom: 0;
 }
 
+/* Reduce content section spacing on mobile */
+@media (max-width: 768px) {
+    .content-section {
+        margin-bottom: var(--spacing-2xl);
+    }
+}
+
 .content-header {
     margin-bottom: var(--spacing-xl);
 }

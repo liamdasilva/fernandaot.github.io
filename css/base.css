@@ -54,7 +54,7 @@
     /* Layout Variables */
     --max-width-content: 1200px;
     --max-width-text: 800px;
-    --section-padding: var(--spacing-3xl) var(--spacing-lg);
+    --section-padding: var(--spacing-2xl) var(--spacing-lg);
     
     /* Interactive Elements */
     --touch-target-min: 44px;
