@@ -343,6 +343,21 @@
 
 
 /* Typography for All Sections */
+.pillar-icon {
+    display: block;
+    margin: 0 auto var(--spacing-md) auto;
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    opacity: 0.8;
+    transition: opacity var(--transition-normal), transform var(--transition-normal);
+}
+
+.pillar:hover .pillar-icon {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
 .pillar h2 {
     color: var(--primary-color);
     margin-top: 0;
@@ -637,36 +652,6 @@
     color: var(--primary-color);
     position: absolute;
     left: 0;
-    font-weight: bold;
-}
-
-.languages-card {
-    text-align: center;
-}
-
-.languages-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-sm);
-    flex-wrap: wrap;
-}
-
-.languages-label {
-    color: var(--primary-color);
-    font-weight: 600;
-    font-size: var(--font-size-lg);
-    margin-right: var(--spacing-xs);
-}
-
-.language {
-    font-size: var(--font-size-base);
-    line-height: var(--line-height-base);
-    margin-right: var(--spacing-xl);
-}
-
-.language-separator {
-    color: var(--primary-color);
     font-weight: bold;
 }
 
