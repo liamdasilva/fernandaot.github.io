@@ -19,7 +19,7 @@
 }
 
 .section-gradient {
-    background: var(--gradient-primary);
+    background: var(--light-sage);
     padding: var(--section-padding);
 }
 
@@ -128,8 +128,8 @@
 
 /* Hero Section Layout */
 .hero-section {
-    background: var(--gradient-primary);
-    padding: var(--spacing-4xl) var(--spacing-lg);
+    background: var(--light-sage);
+    padding: var(--spacing-4xl) var(--spacing-lg) var(--spacing-2xl) var(--spacing-lg);
     min-height: 70vh;
     display: flex;
     align-items: center;
@@ -320,11 +320,11 @@
 
 /* Footer */
 footer {
-    background: var(--text-primary);
+    background: var(--primary-color);
     color: var(--white);
     text-align: center;
-    padding: var(--spacing-xl) var(--spacing-lg);
-    margin-top: var(--spacing-4xl);
+    padding: var(--spacing-3xl) var(--spacing-lg) var(--spacing-xl) var(--spacing-lg);
+    margin-top: 0;
 }
 
 footer p {

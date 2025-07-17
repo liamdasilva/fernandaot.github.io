@@ -2,21 +2,28 @@
 
 /* Expertise Section */
 .expertise-section {
-    padding: var(--section-padding);
-    background: var(--gradient-primary);
+    padding: var(--spacing-3xl) var(--spacing-lg) var(--spacing-3xl) var(--spacing-lg);
+    background: var(--soft-clay);
 }
 
 .expertise-content {
     max-width: var(--max-width-content);
     margin: 0 auto;
     text-align: center;
+    padding-top: 0;
+}
+
+.expertise-content h2 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-2xl);
+    padding-top: 0;
 }
 
 .expertise-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--spacing-xl);
-    margin-top: var(--spacing-2xl);
+    margin-top: var(--spacing-sm);
 }
 
 .expertise-item {
@@ -74,7 +81,7 @@
 /* About Page Styles */
 .about-section {
     padding: var(--section-padding);
-    background: var(--gradient-primary);
+    background: var(--light-sage);
 }
 
 .about-content {
@@ -249,7 +256,7 @@
 /* Approach Page Styles */
 .approach-section {
     padding: var(--section-padding);
-    background: var(--gradient-primary);
+    background: var(--light-sage);
 }
 
 .approach-content {
@@ -393,7 +400,7 @@
 /* Services Page Styles */
 .services-section {
     padding: var(--section-padding);
-    background: var(--gradient-primary);
+    background: var(--light-sage);
 }
 
 .services-content {
@@ -409,20 +416,20 @@
 }
 
 .services-intro {
-    text-align: center;
-    margin-bottom: var(--spacing-4xl);
+    text-align: left;
+    margin-bottom: var(--spacing-xl);
 }
 
 .services-intro .lead {
     font-size: var(--font-size-lg);
     color: var(--text-secondary);
-    max-width: var(--max-width-text);
-    margin: 0 auto;
+    max-width: var(--max-width-content);
+    margin: 0;
 }
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-xl);
     margin: var(--spacing-2xl) 0;
 }
@@ -559,7 +566,7 @@
 /* Contact Page Styles */
 .contact-section {
     padding: var(--section-padding);
-    background: var(--gradient-primary);
+    background: var(--light-sage);
 }
 
 .contact-content {
@@ -718,9 +725,9 @@
 /* CTA Sections */
 .cta-section {
     background: var(--white);
-    padding: var(--spacing-3xl) var(--spacing-lg);
+    padding: var(--spacing-4xl) var(--spacing-lg) var(--spacing-4xl) var(--spacing-lg);
     text-align: center;
-    margin-top: var(--spacing-4xl);
+    margin-top: 0;
 }
 
 .cta-content {
@@ -900,8 +907,7 @@
     .about-section,
     .services-section,
     .contact-section,
-    .approach-section,
-    .expertise-section {
+    .approach-section {
         padding-top: calc(var(--header-height) + var(--spacing-2xl)) !important;
     }
 }

@@ -10,11 +10,11 @@
 /* CSS Custom Properties (Variables) */
 :root {
     /* Brand Colors - Earth Tone Palette */
-    --primary-color: #8B9A7A;          /* Warm sage green */
-    --secondary-color: #B8967A;        /* Soft terracotta clay */
+    --secondary-color: #8B9A7A;          /* Warm sage green */
+    --primary-color: #B8967A;        /* Soft terracotta clay */
     --accent-color: #C6A55D;           /* Rich warm ochre */
-    --warm-cream: #F7F5F1;             /* Natural linen background */
-    --light-sage: #E8EBE3;             /* Light sage background */
+    --warm-cream: #E8EBE3;             /* Natural linen background */
+    --light-sage: #F7F5F1;             /* Light sage background */
     --soft-clay: #F0EBE6;              /* Soft clay background */
     --text-primary: #3A3A2A;           /* Rich earth brown text */
     --text-secondary: #4A5A3A;         /* Warm forest green */
@@ -101,7 +101,7 @@ body {
     font-size: var(--font-size-sm);
     line-height: var(--line-height-normal);
     color: var(--text-primary);
-    background-color: var(--white);
+    background-color: var(--warm-cream);
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
