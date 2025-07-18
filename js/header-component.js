@@ -33,6 +33,9 @@ class HeaderComponent {
             <header>
                 <nav class="main-nav">
                     <div class="nav-container">
+                        <a href="index.html" class="nav-logo" aria-label="Go to homepage">
+                            <img src="images/icon.png" alt="Fernanda Da Silva OT logo" width="40" height="40">
+                        </a>
                         <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
                             <span class="hamburger-line"></span>
                             <span class="hamburger-line"></span>

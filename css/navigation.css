@@ -30,6 +30,30 @@
     min-height: var(--header-height);
 }
 
+/* Navigation Logo */
+.nav-logo {
+    display: none; /* Hidden on desktop */
+    align-items: center;
+    text-decoration: none;
+    transition: opacity var(--transition-fast);
+}
+
+.nav-logo:hover {
+    opacity: 0.8;
+}
+
+.nav-logo:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+    border-radius: var(--border-radius-sm);
+}
+
+.nav-logo img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
 .brand-text {
     font-size: var(--font-size-xl);
     font-weight: 600;
@@ -137,12 +161,18 @@
         padding: var(--spacing-sm) var(--spacing-md);
     }
     
+    .nav-logo {
+        display: flex; /* Show on mobile */
+        order: 3;
+    }
+    
     .brand-text {
         font-size: var(--font-size-lg);
     }
     
     .mobile-menu-toggle {
         display: flex;
+        order: 1;
     }
     
     .nav-menu {
