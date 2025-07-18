@@ -22,13 +22,15 @@
 /* Navigation Container */
 .nav-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding: var(--spacing-md) var(--spacing-lg);
     max-width: var(--max-width-content);
     margin: 0 auto;
     min-height: var(--header-height);
+    position: relative;
 }
+
 
 /* Navigation Logo */
 .nav-logo {
@@ -60,6 +62,9 @@
     color: var(--text-primary);
     text-decoration: none;
     transition: color var(--transition-fast);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .brand-text:hover {
@@ -154,6 +159,17 @@
     transform: rotate(-45deg) translate(6px, -6px);
 }
 
+/* Hide brand text on desktop and tablet and center navigation */
+@media (min-width: 769px) {
+    .brand-text {
+        display: none;
+    }
+    
+    .nav-container {
+        justify-content: center;
+    }
+}
+
 /* Mobile Navigation Styles */
 @media (max-width: 768px) {
     .nav-container {
@@ -168,6 +184,9 @@
     
     .brand-text {
         font-size: var(--font-size-lg);
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
     }
     
     .mobile-menu-toggle {
@@ -233,6 +252,59 @@
     .nav-menu a {
         padding: var(--spacing-sm);
         font-size: var(--font-size-sm);
+    }
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: var(--spacing-xl);
+    right: var(--spacing-xl);
+    width: 48px;
+    height: 48px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    transition: all var(--transition-normal);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--shadow-color);
+}
+
+.back-to-top:focus {
+    outline: 2px solid var(--white);
+    outline-offset: 2px;
+}
+
+.back-to-top:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: var(--spacing-lg);
+        right: var(--spacing-lg);
+        width: 44px;
+        height: 44px;
     }
 }
 

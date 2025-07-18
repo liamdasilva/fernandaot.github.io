@@ -36,6 +36,7 @@ class HeaderComponent {
                         <a href="index.html" class="nav-logo" aria-label="Go to homepage">
                             <img src="images/icon.png" alt="Fernanda Da Silva OT logo" width="40" height="40">
                         </a>
+                        <a href="index.html" class="brand-text" aria-label="Go to homepage">Fernanda Da Silva</a>
                         <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
                             <span class="hamburger-line"></span>
                             <span class="hamburger-line"></span>
@@ -46,6 +47,13 @@ class HeaderComponent {
                         </ul>
                     </div>
                 </nav>
+                
+                <!-- Back to Top Button -->
+                <button class="back-to-top" aria-label="Back to top" title="Back to top">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 4L4 12H8V20H16V12H20L12 4Z" fill="currentColor"/>
+                    </svg>
+                </button>
             </header>
         `;
     }
@@ -109,6 +117,9 @@ class HeaderComponent {
         
         // Initialize expertise section interactions (mobile)
         this.initializeExpertiseInteractions();
+        
+        // Initialize back to top button
+        this.initializeBackToTop();
     }
 
     initializeScrollHeader() {
@@ -356,6 +367,60 @@ class HeaderComponent {
         expertiseItems.forEach(item => {
             observer.observe(item, { attributes: true, attributeFilter: ['class'] });
         });
+    }
+
+    initializeBackToTop() {
+        const backToTopButton = document.querySelector('.back-to-top');
+        if (!backToTopButton) return;
+        
+        // Function to check scroll position and show/hide button
+        const toggleButtonVisibility = () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const threshold = 300; // Show button after scrolling 300px
+            
+            if (scrollTop > threshold) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        };
+        
+        // Function to scroll to top smoothly
+        const scrollToTop = () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        };
+        
+        // Add click event listener
+        backToTopButton.addEventListener('click', scrollToTop);
+        
+        // Add keyboard support
+        backToTopButton.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                scrollToTop();
+            }
+        });
+        
+        // Throttled scroll listener for performance
+        let ticking = false;
+        const handleScroll = () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    toggleButtonVisibility();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        };
+        
+        // Add scroll event listener
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        
+        // Initial check
+        toggleButtonVisibility();
     }
 
 }
