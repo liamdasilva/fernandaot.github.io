@@ -154,10 +154,10 @@
     box-shadow: 0 8px 32px var(--shadow-color);
 }
 
-/* Desktop/Tablet: Move image down slightly */
+/* Desktop/Tablet: Align image with About Me heading */
 @media (min-width: 769px) {
     .about-image {
-        margin-top: var(--spacing-2xl);
+        margin-top: 0;
         margin-right: var(--spacing-3xl);
         margin-bottom: var(--spacing-lg);
     }
@@ -181,6 +181,72 @@
     color: var(--text-secondary);
     line-height: var(--line-height-relaxed);
     margin-bottom: var(--spacing-lg);
+}
+
+.about-green-box {
+    background: var(--warm-cream);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid rgba(139, 154, 122, 0.3);
+    margin-top: var(--spacing-xl);
+    clear: both;
+}
+
+.about-green-box h2 {
+    margin-top: 0;
+}
+
+.about-green-box p:last-child {
+    margin-bottom: 0;
+}
+
+/* My Values Page Additions (reuses Services & Fees layout classes) */
+.values-intro-box p {
+    text-align: center;
+    font-size: var(--font-size-lg);
+    color: var(--text-primary);
+    line-height: var(--line-height-relaxed);
+    max-width: var(--max-width-text);
+    margin: 0 auto;
+}
+
+.values-therapist-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+}
+
+.values-therapist-grid .process-step {
+    background: var(--light-sage);
+}
+
+.values-step-full {
+    grid-column: 1 / -1;
+}
+
+.values-person-card .service-col li,
+.values-person-card .included-box p {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
+}
+
+.values-image {
+    margin: var(--spacing-xl) auto 0 auto;
+    max-width: 650px;
+}
+
+.values-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 8px 32px var(--shadow-color);
+}
+
+@media (max-width: 768px) {
+    .values-therapist-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .about-content-sections {
@@ -456,65 +522,155 @@
     margin-bottom: var(--spacing-2xl);
 }
 
-.services-intro {
-    text-align: left;
-    margin-bottom: var(--spacing-xl);
+/* The Process Flow */
+.process-box {
+    background: var(--warm-cream);
+    padding: var(--spacing-xl) var(--spacing-2xl);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid rgba(139, 154, 122, 0.3);
+    margin-bottom: var(--spacing-2xl);
 }
 
-.services-intro .lead {
+.process-heading {
+    text-align: center;
+    font-size: var(--font-size-2xl);
+    color: var(--text-primary);
+    margin: 0 0 var(--spacing-xl) 0;
+}
+
+.process-flow {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+    align-items: stretch;
+    gap: var(--spacing-sm);
+}
+
+.process-step {
+    background: var(--white);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    border-top: 3px solid var(--secondary-color);
+    box-shadow: 0 2px 6px rgba(58, 58, 42, 0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.process-step h4 {
+    color: var(--primary-color);
     font-size: var(--font-size-lg);
+    margin: 0 0 var(--spacing-sm) 0;
+    line-height: var(--line-height-tight);
+}
+
+.process-step p {
     color: var(--text-secondary);
-    max-width: var(--max-width-content);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
+    margin: 0 0 var(--spacing-xs) 0;
+}
+
+.process-step p:last-child {
+    margin-bottom: 0;
+}
+
+.process-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--primary-color);
+    padding: 0 var(--spacing-xs);
+    user-select: none;
+}
+
+/* Stacked Cohesive Service Cards */
+.services-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2xl);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.service-card {
+    background: var(--white);
+    padding: var(--spacing-xl) var(--spacing-2xl);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.service-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--spacing-lg);
+    padding-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--warm-cream);
+}
+
+.service-card-header h2 {
+    color: var(--primary-color);
+    font-size: var(--font-size-2xl);
+    margin: 0 0 var(--spacing-xs) 0;
+    line-height: var(--line-height-tight);
+}
+
+.service-subtitle {
+    color: var(--text-secondary);
+    font-size: var(--font-size-base);
     margin: 0;
 }
 
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-xl);
-    margin: var(--spacing-2xl) 0;
+.service-price-badge {
+    background: var(--light-sage);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    text-align: right;
+    flex-shrink: 0;
 }
 
-.service-category {
-    background: var(--white);
-    padding: var(--spacing-lg) var(--spacing-xl);
-    border-radius: var(--border-radius-lg);
-    box-shadow: 0 4px 12px var(--shadow-color);
-    transition: transform var(--transition-normal);
+.service-price-badge .price-label {
+    display: block;
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-light);
+    font-weight: 600;
 }
 
-.service-category:hover {
-    transform: translateY(-2px);
-}
-
-.service-category h3 {
-    color: var(--primary-color);
-    margin-top: 0;
-    margin-bottom: var(--spacing-xs);
+.service-price-badge .price {
+    display: block;
     font-size: var(--font-size-xl);
+    margin: 0;
     line-height: var(--line-height-tight);
 }
 
-.service-category p {
-    margin-bottom: var(--spacing-sm);
+.service-card-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-2xl);
+}
+
+.service-col h3 {
+    color: var(--text-primary);
+    font-size: var(--font-size-lg);
+    margin: 0 0 var(--spacing-sm) 0;
+}
+
+.service-col p {
     font-size: var(--font-size-base);
     line-height: var(--line-height-relaxed);
+    margin-bottom: var(--spacing-sm);
 }
 
-.service-category .price {
-    margin: var(--spacing-sm) 0;
-    display: block;
-    line-height: var(--line-height-tight);
-    font-size: var(--font-size-lg);
-}
-
-.service-category ul {
+.service-col ul {
     list-style: none;
     padding: 0;
-    margin-top: var(--spacing-xs);
+    margin: 0;
 }
 
-.service-category li {
+.service-col ul li {
     margin-bottom: var(--spacing-xs);
     padding-left: var(--spacing-lg);
     position: relative;
@@ -522,12 +678,87 @@
     line-height: var(--line-height-relaxed);
 }
 
-.service-category li:before {
+.service-col ul li:before {
     content: "•";
     color: var(--primary-color);
     position: absolute;
     left: 0;
     font-weight: bold;
+}
+
+.process-list {
+    list-style: none;
+    counter-reset: step-counter;
+    padding: 0;
+    margin: 0;
+}
+
+.process-list li {
+    counter-increment: step-counter;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-xs) 0 var(--spacing-xs) var(--spacing-xl);
+    position: relative;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    border-bottom: 1px solid var(--light-sage);
+}
+
+.process-list li:last-child {
+    border-bottom: none;
+}
+
+.process-list li:before {
+    content: counter(step-counter) ".";
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.step-fee {
+    font-weight: 700;
+    color: var(--accent-color);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.included-box {
+    background: var(--light-sage);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    border-left: 4px solid var(--secondary-color);
+    height: 100%;
+}
+
+/* Accessible Care Callout Banner */
+.accessibility-banner {
+    background: var(--soft-clay);
+    padding: var(--spacing-xl) var(--spacing-2xl);
+    border-radius: var(--border-radius-lg);
+    border-left: 4px solid var(--primary-color);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.accessibility-banner h2 {
+    color: var(--text-primary);
+    font-size: var(--font-size-xl);
+    margin: 0 0 var(--spacing-sm) 0;
+}
+
+.accessibility-banner p {
+    color: var(--text-primary);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--spacing-sm);
+}
+
+.accessibility-banner .accessibility-invite {
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 0;
 }
 
 .pricing-grid {
@@ -642,9 +873,10 @@
 }
 
 .contact-method {
-    background: var(--white);
+    background: var(--warm-cream);
     padding: var(--spacing-xl);
     border-radius: var(--border-radius-lg);
+    border: 1px solid rgba(139, 154, 122, 0.3);
     box-shadow: 0 4px 12px var(--shadow-color);
     text-align: center;
     transition: transform var(--transition-normal);
@@ -810,8 +1042,16 @@
         gap: var(--spacing-lg);
     }
     
-    .services-grid {
-        grid-template-columns: 1fr;
+    .process-flow {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+
+    .process-arrow {
+        display: none;
+    }
+
+    .service-card-columns {
         gap: var(--spacing-lg);
     }
 }
@@ -906,7 +1146,8 @@
     
     .education-grid,
     .certifications-grid,
-    .services-grid,
+    .process-flow,
+    .service-card-columns,
     .pricing-grid,
     .contact-methods,
     .info-grid,
@@ -914,6 +1155,35 @@
     .faq-grid {
         grid-template-columns: 1fr;
         justify-items: center;
+    }
+
+    .process-flow,
+    .service-card-columns {
+        justify-items: stretch;
+        gap: var(--spacing-sm);
+    }
+
+    .process-arrow {
+        transform: rotate(90deg);
+        padding: var(--spacing-xs) 0;
+    }
+
+    .process-box,
+    .service-card {
+        padding: var(--spacing-lg);
+    }
+
+    .service-card-header {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .service-price-badge {
+        text-align: left;
+    }
+
+    .accessibility-banner {
+        padding: var(--spacing-lg);
     }
     
     /* Compact contact cards for mobile */

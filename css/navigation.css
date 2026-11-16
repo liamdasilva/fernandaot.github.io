@@ -199,10 +199,12 @@
         top: var(--header-height);
         left: 0;
         right: 0;
+        max-height: calc(100vh - var(--header-height));
+        overflow-y: auto;
         background-color: var(--white);
         box-shadow: 0 4px 20px var(--shadow-color);
         flex-direction: column;
-        padding: var(--spacing-lg);
+        padding: var(--spacing-md) var(--spacing-lg);
         gap: 0;
         transform: translateY(-100%);
         opacity: 0;
@@ -226,7 +228,7 @@
     }
     
     .nav-menu a {
-        padding: var(--spacing-lg) var(--spacing-md);
+        padding: var(--spacing-md);
         font-size: var(--font-size-lg);
         text-align: left;
         width: 100%;

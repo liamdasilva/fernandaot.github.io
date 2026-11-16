@@ -130,20 +130,31 @@
 .hero-section {
     background: var(--light-sage);
     padding: var(--spacing-4xl) var(--spacing-lg) var(--spacing-2xl) var(--spacing-lg);
-    min-height: 70vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     overflow: hidden;
 }
 
+.hero-title-box {
+    width: 100%;
+    max-width: var(--max-width-content);
+    margin: 0 auto var(--spacing-2xl) auto;
+    text-align: center;
+}
+
+.hero-title-box h1 {
+    font-size: var(--font-size-4xl);
+    margin: 0;
+}
+
 .hero-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.15fr 1fr;
     gap: var(--spacing-3xl);
     align-items: center;
     max-width: var(--max-width-content);
     margin: 0 auto;
-    overflow: visible;
 }
 
 .hero-text {
@@ -154,53 +165,28 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: visible;
     position: relative;
 }
 
 .hero-image img {
-    margin-top: -15rem;
-    margin-right: clamp(-18rem, -8rem + (-10rem * (100vw - 771px) / (1456px - 771px)), -8rem);
-    margin-left: 2rem;
-    position: relative;
-    z-index: 1;
-    transform: scale(clamp(1.1, 1.1 + (0.2 * (100vw - 771px) / (1456px - 771px)), 1.3));
-    transform-origin: top right;
-}
-
-/* Large Desktop (1457px and up) */
-@media (min-width: 1457px) {
-    .hero-image img {
-        margin-right: -12rem;
-        transform: scale(1.25);
-    }
-}
-
-/* Medium Desktop (1025px to 1456px) */
-@media (max-width: 1456px) and (min-width: 1025px) {
-    .hero-image img {
-        margin-right: clamp(-12rem, -6rem + (-6rem * (100vw - 1025px) / (1456px - 1025px)), -6rem);
-        transform: scale(clamp(1.15, 1.15 + (0.1 * (100vw - 1025px) / (1456px - 1025px)), 1.25));
-    }
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: 68% 15%;
+    border: 6px solid var(--white);
+    outline: 1px solid rgba(139, 154, 122, 0.25);
 }
 
 /* Tablet Hero Layout (769px to 1024px) */
 @media (max-width: 1024px) and (min-width: 769px) {
-    .hero-image img {
-        margin-top: -3rem;
-        margin-right: clamp(-5rem, -2rem + (-3rem * (100vw - 769px) / (1024px - 769px)), -2rem);
-        margin-left: 1rem;
-        transform: scale(clamp(1.08, 1.08 + (0.07 * (100vw - 769px) / (1024px - 769px)), 1.15));
+    .hero-content {
+        grid-template-columns: 1.15fr 0.9fr;
+        gap: var(--spacing-2xl);
     }
-}
 
-/* Small Tablet (771px to 768px - this handles the specific range you mentioned) */
-@media (max-width: 771px) and (min-width: 769px) {
     .hero-image img {
-        margin-top: -3rem;
-        margin-right: -2rem;
-        margin-left: 1rem;
-        transform: scale(1.08);
+        max-width: 360px;
     }
 }
 
@@ -222,11 +208,7 @@
     }
     
     .hero-image img {
-        margin-top: 0;
-        margin-right: 0;
-        margin-left: 0;
-        transform: scale(1);
-        transform-origin: center;
+        max-width: 320px;
     }
 }
 

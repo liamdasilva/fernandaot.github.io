@@ -19,6 +19,7 @@ class HeaderComponent {
         const navItems = [
             { href: 'index.html', text: 'Home' },
             { href: 'about.html', text: 'About Me' },
+            { href: 'values.html', text: 'My Values' },
             { href: 'approach.html', text: 'My Approach' },
             { href: 'services.html', text: 'Services & Fees' },
             { href: 'contact.html', text: 'Contact Me' }
