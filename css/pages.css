@@ -626,7 +626,7 @@
     background: var(--light-sage);
     padding: var(--spacing-sm) var(--spacing-lg);
     border-radius: var(--border-radius-md);
-    text-align: right;
+    text-align: left;
     flex-shrink: 0;
 }
 
@@ -1086,7 +1086,8 @@
     .services-content h1,
     .contact-content h1,
     .approach-content h1 {
-        font-size: var(--font-size-3xl);
+        font-size: 1.75rem;
+        margin-bottom: var(--spacing-lg);
     }
     
     .about-text-intro h2 {

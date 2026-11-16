@@ -192,6 +192,14 @@
 
 /* Mobile Hero Layout */
 @media (max-width: 768px) {
+    .hero-title-box {
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .hero-title-box h1 {
+        font-size: 1.75rem;
+    }
+
     .hero-content {
         grid-template-columns: 1fr;
         gap: var(--spacing-2xl);
